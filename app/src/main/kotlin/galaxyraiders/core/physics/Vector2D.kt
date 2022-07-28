@@ -2,6 +2,7 @@
 package galaxyraiders.core.physics
 
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties
+import kotlin.math.atan
 import kotlin.math.pow
 import kotlin.math.sqrt
 
@@ -15,7 +16,12 @@ data class Vector2D(val dx: Double, val dy: Double) {
     get() = sqrt((this.dx).pow(2) + (this.dy).pow(2))
 
   val radiant: Double
-    get() = INVALID_DOUBLE
+    get() = if (this.dx < 0) {
+      if (this.dy > 0) atan(this.dy/this.dx) + Math.PI
+      else atan(this.dy/this.dx) - Math.PI
+    } else {
+      atan(this.dy/this.dx)
+    }
 
   val degree: Double
     get() = INVALID_DOUBLE
