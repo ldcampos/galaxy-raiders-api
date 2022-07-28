@@ -1,6 +1,9 @@
 @file:Suppress("UNUSED_PARAMETER") // <- REMOVE
 package galaxyraiders.core.physics
 
+import kotlin.math.pow
+import kotlin.math.sqrt
+
 data class Point2D(val x: Double, val y: Double) {
   operator fun plus(p: Point2D): Point2D {
     return Point2D(this.x + p.x, this.y + p.y)
@@ -35,6 +38,6 @@ data class Point2D(val x: Double, val y: Double) {
   }
 
   fun distance(p: Point2D): Double {
-    return INVALID_DOUBLE
+    return sqrt((p.x - this.x).pow(2) + (p.y - this.y).pow(2))
   }
 }
