@@ -24,7 +24,7 @@ data class Vector2D(val dx: Double, val dy: Double) {
     }
 
   val degree: Double
-    get() = INVALID_DOUBLE
+    get() = radiant * 180/Math.PI
 
   val unit: Vector2D
     get() = INVALID_VECTOR
