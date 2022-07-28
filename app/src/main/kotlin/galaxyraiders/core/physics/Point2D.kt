@@ -18,7 +18,7 @@ data class Point2D(val x: Double, val y: Double) {
   }
 
   fun toVector(): Vector2D {
-    return INVALID_VECTOR
+    return Vector2D(this.x, this.y)
   }
 
   fun impactVector(p: Point2D): Vector2D {
