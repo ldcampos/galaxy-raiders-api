@@ -24,7 +24,7 @@ data class Vector2D(val dx: Double, val dy: Double) {
     }
 
   val degree: Double
-    get() = radiant * 180 / Math.PI
+    get() = radiant * DEGREE_CONST
 
   val unit: Vector2D
     get() = Vector2D(this.dx / magnitude, this.dy / magnitude)
@@ -66,6 +66,10 @@ data class Vector2D(val dx: Double, val dy: Double) {
 
   fun vectorProject(target: Vector2D): Vector2D {
     return scalarProject(target) * target / target.magnitude
+  }
+
+  companion object {
+    const val DEGREE_CONST = 180 / Math.PI
   }
 }
 
